@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-  connect = require('gulp-connect');
+  connect = require('gulp-connect'),
+  runSequence = require('run-sequence');
 
 gulp.task('connect', function() {
   connect.server({
@@ -8,11 +9,15 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('resources', function () {
-  gulp.src('./app/*.**')
+gulp.task('reload', function(callback) {
+  runSequence('build', 'resources', callback);
+});
+
+gulp.task('resources', function() {
+  gulp.src('./build/*.**')
     .pipe(connect.reload());
 });
 
-gulp.task('watch', function () {
-  gulp.watch(['./app/*.**'], ['resources']);
+gulp.task('watch', function() {
+  gulp.watch(['./src/app/*.**'], ['reload']);
 });
