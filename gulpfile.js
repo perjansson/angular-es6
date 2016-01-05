@@ -3,4 +3,4 @@ var gulp = require('gulp'),
 
 requireDir('./gulp_tasks');
 
-gulp.task('default', ['connect']);
+gulp.task('default', ['connect', 'watch']);

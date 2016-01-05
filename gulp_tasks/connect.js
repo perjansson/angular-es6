@@ -7,3 +7,12 @@ gulp.task('connect', function() {
     livereload: true
   });
 });
+
+gulp.task('resources', function () {
+  gulp.src('./app/*.**')
+    .pipe(connect.reload());
+});
+
+gulp.task('watch', function () {
+  gulp.watch(['./app/*.**'], ['resources']);
+});
