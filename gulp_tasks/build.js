@@ -1,10 +1,21 @@
 var gulp = require('gulp');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
+var browserify = require('browserify');
+var watchify = require('watchify');
+var babelify = require('babelify');
+var buffer = require('vinyl-buffer');
+var source = require('vinyl-source-stream');
 
 gulp.task('build', function() {
-  return gulp.src('src/**/*.js')
-    .pipe(babel())
-    .pipe(concat('app.js'))
+  var bundler = watchify(browserify('./src/app.js', {
+    debug: true
+  }).transform(babelify));
+
+  bundler.bundle()
+    .on('error', function(err) {
+      console.error(err);
+      this.emit('end');
+    })
+    .pipe(source('app.bundle.js'))
+    .pipe(buffer())
     .pipe(gulp.dest('build'));
 });

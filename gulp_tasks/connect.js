@@ -19,5 +19,5 @@ gulp.task('resources', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/app/*.**'], ['reload']);
+  gulp.watch(['./src/**/*.**'], ['reload']);
 });
