@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>angular-es6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app/app.module.js"></script>
+  <script src="app/main.controller.js"></script>
+</head>
+
+
+<body ng-app="angularES6App">
+
+  <div class="container" ng-controller="MainController as vm">
+    <h1>Angular ES 2015</h1>
+
+    {{ vm.greeting }}
+  </div>
+
+</body>
+
+</html>
