@@ -1,8 +1,8 @@
 import Joke from './joke';
 
-class JokesService {
+const jokeBackend = 'http://api.icndb.com/jokes/random';
 
-  const jokeBackend = 'http://api.icndb.com/jokes/random';
+class JokesService {
 
   constructor($http) {
     this.$http = $http;
