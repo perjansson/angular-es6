@@ -1,13 +1,11 @@
-class Joke {
+export default class Joke {
 
-  set text(text) {
+	constructor(text) {
     this._text = text;
-  }
+	}
 
   get text() {
     return this._text;
   }
 
 }
-
-export { Joke }

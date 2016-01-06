@@ -1,15 +1,15 @@
+import Joke from './joke';
+
 class JokesService {
 
-  constructor($http, Joke) {
+  constructor($http) {
     this.$http = $http;
-    this.Joke = Joke;
   }
 
   fetchJoke() {
     return this.$http.get('http://api.icndb.com/jokes/random')
       .then(response => {
-        this.Joke.text = response.data.value.joke;
-        return this.Joke;
+        return new Joke(response.data.value.joke);
       });
   }
 

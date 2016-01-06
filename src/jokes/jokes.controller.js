@@ -5,7 +5,7 @@ class JokesController {
 
     JokesService.fetchJoke()
       .then(joke => {
-        this.joke = joke.text;
+        this.joke = joke;
       })
   }
 
